@@ -1,0 +1,13 @@
+<!-- public/views/nerd.html -->
+
+<div class="jumbotron text-center">
+    <h1>Nerds and Proud</h1>
+
+    <p>{{ tagline }}</p>
+    <form method="POST">
+			User id: <input type="number" name="user_id" ng-model="users.user_id">  <br>
+
+			User Name: <input type="text" name="user_name" ng-model="users.user_name">
+						<input type="submit" value="Submit">
+		</form>
+</div>

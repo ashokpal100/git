@@ -1,0 +1,21 @@
+{
+  "name": "meanstackapp",
+  "description": "",
+  "main": "angular-route.min.js",
+  "authors": [
+    "pal"
+  ],
+  "license": "ISC",
+  "moduleType": [
+    "node"
+  ],
+  "homepage": "",
+  "dependencies": {
+    "jquery": "^2.2.0",
+    "bootstrap": "^3.3.6",
+    "font-awesome": "^4.5.0",
+    "animate.css": "^3.5.1",
+    "angular": "^1.5.0",
+    "angular-route": "^1.5.0"
+  }
+}
