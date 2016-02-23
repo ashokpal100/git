@@ -1,7 +1,7 @@
 <!doctype html>
 
 <!-- ASSIGN OUR ANGULAR MODULE -->
-<html ng-app="scotchTodo">
+<html>
 <head>
 	<!-- META -->
 	<meta charset="utf-8">
@@ -27,7 +27,7 @@
 
 </head>
 <!-- SET THE CONTROLLER -->
-<body ng-controller="mainController">
+<body  ng-app="scotchTodo"ng-controller="mainController">
 	<div class="container">
 
 		<!-- HEADER AND TODO COUNT -->
@@ -37,7 +37,7 @@
 
 		<!-- TODO LIST -->
 		<div id="todo-list" class="row">
-			<div class="col-sm-4 col-sm-offset-4">
+			<div class="col-sm-5 col-sm-offset-4">
 
 				<!-- LOOP OVER THE TODOS IN $scope.todos -->
 
@@ -46,8 +46,15 @@
 						<input type="checkbox" ng-click="deleteTodo(todo._id)">delete</input>
 					</label>
 					<i style="color:blue"> Name is :{{ todo.name}} and Address :{{ todo.add }}</i>
+				</div>=======================================
+				<div class="checkbox" ng-repeat="todo in todos">
+					<label>
+						<input type="checkbox" ng-click="updateTodo(todo._id)">update</input>
+					</label>
+					<i style="color:blue"> Name is :{{ todo.name}} and Address :{{ todo.add }}</i>
 				</div>
-
+				         Name:<input type="text" class="form-control input-xs text-center">
+						address:<input type="text" class="form-control input-xs text-center">
 			</div>
 		</div>
 

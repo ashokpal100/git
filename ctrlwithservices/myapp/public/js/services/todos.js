@@ -12,6 +12,9 @@ angular.module('todoService', [])
 			},
 			delete : function(id) {
 				return $http.delete('/api/todos/' + id);
+			},
+			update : function(id1) {
+				return $http.post('/api/todos/' + id1);
 			}
 		}
 	});
