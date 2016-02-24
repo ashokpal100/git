@@ -22,7 +22,6 @@ var mainApp = angular.module("mainApp", []);
     	});
     };
     $scope.remove = function(id){
-    	//alert("hi");
     	console.log(id);
     	$http.delete('/contactlist/' + id).success(function(resp){
     		refresh();
