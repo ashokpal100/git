@@ -22,26 +22,36 @@ app.post('/contactlist',function(req,res){
    	console.log(req.body);
    	db.contactlist.insert(req.body,function(err,result){
    		res.json(result);
-   	})
+   	});
 });
-   /* person1={
-        	name:'Ashok',
-        	email:'abc@gmail.com',
-        	number:'1234567890'
-        };   
-        person2={
-        	name:'Ashok2',
-        	email:'abc2@gmail.com',
-        	number:'1234567890'
-        };
-        person3={
-        	name:'Ashok3',
-        	email:'abc3@gmail.com',
-        	number:'1234567890'
-        };
+app.delete('/contactlist/:c_id',function(req,res){
+  var id=req.params.c_id
+	console.log(id);
+	db.contactlist.remove({_id : mongojs.ObjectId(id)},function(err,doc){
+    if(err)
+      res.send(err);
+		res.json(doc);
+	});
+});
+app.get('/contactlist/:id',function(req,res){
+  var id=req.params.id;
+  console.log(id);
+  db.contactlist.findOne({_id : mongojs.ObjectId(id)},function(err,doc1){
+    if (err) 
+      res.send(err);
+   res.json(doc1);
+  });
+});
+app.put('/contactlist/:id',function(req,res){
+  var id=req.params.id;
+  console.log(req.body.name);
+  db.contactlist.findAndModify({query:{_id:mongojs.ObjectId(id)},
+    update: {$set : {name: req.body.name,email:req.body.email, number : req.body.number}},
+    new: true},function(err,doc){
+      res.json(doc);
+    });
+});
 
-        var contactlist=[person1,person2,person3];
-        res.json(contactlist);*/
 });
 app.listen(3000);
 console.log("server running on port 3000");

@@ -21,7 +21,26 @@ var mainApp = angular.module("mainApp", []);
     		refresh();
     	});
     };
-       
-        //$scope.contactlist=contactlist;
-
+    $scope.remove = function(id){
+    	//alert("hi");
+    	console.log(id);
+    	$http.delete('/contactlist/' + id).success(function(resp){
+    		refresh();
+    	});
+    };
+    $scope.edit = function(id){
+        console.log(id);
+        $http.get('/contactlist/' + id).success(function(response){
+             $scope.contact = response;
+        });
+    };
+    $scope.update = function(){
+        console.log($scope.contact._id);
+        $http.put('/contactlist/'+  $scope.contact._id , $scope.contact).success(function(response){
+            refresh();
+        });
+    };
+    $scope.deSelect = function(){
+        $scope.contact="";
+    }
     });
