@@ -1,2 +1,1 @@
-// public/js/app.js
-angular.module('sampleApp', ['ngRoute', 'appRoutes', 'MainCtrl', 'NerdCtrl', 'NerdService']);
+angular.module('mvcApp', ['ngRoute', 'appRoutes', 'mainCtrl', 'contactCtrl',  'abtCtrl', 'moreCtrl', 'contactService']);

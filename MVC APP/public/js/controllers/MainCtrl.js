@@ -1,5 +1,4 @@
-// public/js/controllers/MainCtrl.js
-angular.module('MainCtrl', []).controller('MainController', function($scope,$http, Nerd) {
+angular.module('mainCtrl', []).controller('mainController', function($scope,$http, contactSrv) {
     console.log("I AM IN MAIN CTRL");
     $scope.tagline = 'WELCOME TO HOME';   
     $scope.contact={};
@@ -8,7 +7,7 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,$htt
       {
 			console.log($scope.contact);
 			  if ($scope.contact.name!= undefined && $scope.contact.email!= undefined && $scope.contact.number!= undefined){
-			   Nerd.create($scope.contact).success(function(data)
+			   contactSrv.create($scope.contact).success(function(data)
 			   {
 				console.log(data);
 				alert("Data successfully submit");

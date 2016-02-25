@@ -1,20 +1,23 @@
-// public/js/appRoutes.js
-    angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
     $routeProvider
 
-        .when('/', {
+        .when('/',      {
             templateUrl: 'views/home.html',
-            controller: 'MainController'
+            controller: 'mainController'
         })
 
-        .when('/nerds', {
-            templateUrl: 'views/nerd.html',
-            controller: 'NerdController'
+        .when('/contact',{
+            templateUrl: 'views/contact.html',
+            controller: 'contactController'
         })
-         .when('/nerdss', {
-            templateUrl: 'views/dis&modify.html',
-            controller: 'MainController'
+         .when('/about', {
+            templateUrl: 'views/about.html',
+            controller: 'abtController'
+        })
+         .when('/more', {
+            templateUrl: 'views/more.html',
+            controller: 'moreController'
         });
 
     $locationProvider.html5Mode(true);
