@@ -1,5 +1,5 @@
 
-angular.module('contactCtrl', []).controller('contactController', function($scope,$http, contactSrv) {
+angular.module('contactCtrl', []).controller('contactController', function($scope,$http, $window, contactSrv) {
 
     $scope.tagline = 'WEL COME TO CONTACTS LIST PAGE';
     
@@ -22,11 +22,13 @@ angular.module('contactCtrl', []).controller('contactController', function($scop
         });
     };
      $scope.remove = function(id){
-    	console.log(id);
-    	contactSrv.delete(id).success(function(response){
-            alert("Remove successful");
-    		refresh();
-    	});
+        if ($window.confirm("Are you sure you want to delete this record?")) 
+        {
+              console.log(id);
+                contactSrv.delete(id).success(function(response){
+                    refresh();
+                });      
+        } 
     };
     $scope.update = function(){
         console.log($scope.contact._id);

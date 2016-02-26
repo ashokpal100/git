@@ -2,7 +2,7 @@
     <p>{{ tagline }}</p>
     <div class="container">
       	<h1>Contact List App</h1>
-             <form name="userForm" ng-submit="">
+             <form name="contactForm" ng-submit="addContact()">
       	<table class="table">
       		<thead>
       			<tr>
@@ -15,46 +15,49 @@
       		<tbody>
       			<tr>
       				<td>
-                                    <div class="form-group">
-                                          <input type="text"name="name"class="form-control" ng-model="contact.name" required>
-
-                                          <span style="color:red" ng-show="userForm.name.$dirty && userForm.name.$invalid">
-                                             <i class="glyphicon glyphicon-remove"></i>
-                                             <span ng-show="userForm.name.$error.required">Name is required.</span>
-                                          </span>
-                                          <span style="color:red" ng-show="userForm.name.$dirty && userForm.name.$valid-required">
-                                           <i class="glyphicon glyphicon-ok "style="color:green"></i>
-                                          </span>
-                                    </div>
-                              </td>
+                     <div class="form-group">
+                         <input type="text"name="name"class="form-control" ng-model="contact.name">
+                         <i id="validitionMsg1"style="color:red;padding-left:150px;">{{msg1}}</i>
+                        <!--  <span style="color:red" ng-show="contactForm.name.$dirty && contactForm.name.$invalid">
+                            <i class="glyphicon glyphicon-remove"></i>
+                          <span ng-show="contactForm.name.$error.required">Name is required.</span>
+                          </span>
+                          <span style="color:red" ng-show="contactForm.name.$dirty && contactForm.name.$valid-required">
+                         <i class="glyphicon glyphicon-ok "style="color:green"></i>
+                          </span> -->
+                      </div>
+              </td>
       				<td>
-                                    <div class="form-group">
-                                          <input type="email"name="email"class="form-control" ng-model="contact.email"required>
-                                               
-                                                <span style="color:red" ng-show="userForm.email.$dirty && userForm.email.$invalid">
-                                                <i class="glyphicon glyphicon-remove"></i>
-                                                 <span style="color:red"ng-show="userForm.email.$error.required">Email is required.</span>
-                                                <span style="color:red"ng-show="userForm.email.$error.email">Invalid email address.</span>
-                                               </span>
-                                        <span style="color:red" ng-show="userForm.email.$dirty && userForm.email.$valid-required">
-                                                <i class="glyphicon glyphicon-ok"style="color:green"></i>
-                            </span>
-                                    </div>
-                              </td>
+                     <div class="form-group">
+                       <input type="email"name="email"class="form-control" ng-model="contact.email">
+                       <i id="validitionMsg2"style="color:red;padding-left:150px;" >{{msg2}}</i>
+                       <!--   <span style="color:red" ng-show="contactForm.email.$dirty && contactForm.email.$invalid">
+                           <i class="glyphicon glyphicon-remove"></i>
+                          <span style="color:red"ng-show="contactForm.email.$error.required">Email is required.</span>
+                          <span style="color:red"ng-show="contactForm.email.$error.email">Invalid email address.</span>
+                          </span>
+                          <span style="color:red" ng-show="contactForm.email.$dirty && contactForm.email.$valid-required">
+                          <i class="glyphicon glyphicon-ok"style="color:green"></i>
+                        </span> -->
+                      </div>
+               </td>
       				<td>
-                                    <div class="form-group">
-                                         <input type="number"name="number"class="form-control" ng-model="contact.number"required>
-                                         <span style="color:red"ng-show="userForm.number.$dirty&& userForm.number.$invalid"> 
-                                            <i class="glyphicon glyphicon-remove"></i>
-                                            <span style="color:red"ng-show="userForm.number.$error.required">Mobile no. is required.</span>
-                                          </span>
-                                         <span style="color:red"ng-show=" userForm.number.$dirty&&userForm.number.$valid-required"><i class="glyphicon glyphicon-ok"style="color:green"></i></span>
-                                    </div>
-                              </td>
-      				<td><button class="btn btn-primary" ng-disabled="userForm.name.$invalid && userForm.email.$invalid"ng-click="addContact()">Add Contact</button></td>
+                        <div class="form-group">
+                          <input type="number"name="number"class="form-control" ng-model="contact.number">
+                          <i id="validitionMsg3"style="color:red;padding-left:150px;">{{msg3}}</i>
+                            <!-- <span style="color:red"ng-show="contactForm.number.$dirty&& contactForm.number.$invalid"> 
+                                <i class="glyphicon glyphicon-remove"></i>
+                                <span style="color:red"ng-show="contactForm.number.$error.required">Mobile no. is required.</span>
+                                <span style="color:red"ng-show=" contactForm.number.$invalid">Mobile number is invalid</span>
+                             </span>
+                             <span style="color:red"ng-show=" contactForm.number.$dirty&&contactForm.number.$valid-required"><i class="glyphicon glyphicon-ok"style="color:green"></i></span> -->
+                          </div>
+                          
+                </td>
+      				<td><button class="btn btn-primary">Add Contact</button></td>
       			</tr>
       		</tbody>
       	</table></form>
-         
       </div>
+      <i id="submitMsg" style="font-weight:bold; color:green; font-size: 200%;">{{submitData}}</i>
 </div>

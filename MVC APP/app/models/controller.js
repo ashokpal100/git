@@ -1,5 +1,5 @@
 
-var contact=require('./contacttbl');
+var contact=require('./contactTbl');
 
        exports.add = function(req,res)
        {
