@@ -7,41 +7,35 @@ var connection = mysql.createConnection
      password : '2016',
      database : 'mydatabase'
    });
-  connection.connect(function(err)
-  {
-    if(!err)
-    {
-        console.log("Database is connected ... \n\n");  
-      } 
-      else 
-      {
-         console.log("Error connecting database ... \n\n");  
-      }
-  });
-
-      
-
+  // connection.connect(function(err)
+  // {
+  //   if(!err)
+  //   {
+  //       console.log("Database is connected ... \n\n");  
+  //     } 
+  //     else 
+  //     {
+  //        console.log("Error connecting database ... \n\n");  
+  //     };
+  // });
         exports.findAll = function(req, res)
         {
-             console.log("receive a get req");
-             connection.query('select * from contact ',[],function (err, result) 
-              {
+            console.log("receive a get req");
+            connection.query('select * from contact',[],function (err, result) 
+            {
                   if (err) throw err;
                   res.send(result);
-             });
+            });
 
         };
         exports.add = function(req, res)
        {
             console.log(req.body);
             res.send(req.body);
-
-             var contactUser= {name:req.body.name,email:req.body.email,number:req.body.number};
-
-             connection.query('INSERT INTO contact SET ?',contactUser,function (err, result) 
-             {
+            var contactUser= {name:req.body.name,email:req.body.email,number:req.body.number};
+            connection.query('INSERT INTO contact SET ?',contactUser,function (err, result) 
+            {
                if (err) throw err;
-              //console.log('Changed ' + result.changedRows + ' rows');
               res.send(result);
             });
         };
@@ -53,7 +47,7 @@ var connection = mysql.createConnection
             {
                 if (err) throw err;
                 console.log(result);
-                res.send(result);
+                res.send(result[0]);
            });
         };
 
@@ -72,11 +66,11 @@ var connection = mysql.createConnection
         {
           var id=req.params.id;
           console.log(req.body);
-          // connection.query('UPDATE contact SET name="" Where id = ?',[req.body.id],function (err, result)
-          // {
-          //   if (err) throw err;
-          //   console.log('Changed ' + result.changedRows + ' rows');
-          // });
+          connection.query('update contact SET name=?,email=?,number=? Where id = ?',[req.body.name,req.body.email,req.body.number,id],function (err, result)
+          {
+            if (err) throw err;
+            res.send(result);
+          });
         };
 
         exports.sendHtml = function(req, res) 

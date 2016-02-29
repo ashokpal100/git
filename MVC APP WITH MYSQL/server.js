@@ -2,15 +2,7 @@ var express        = require('express');
 var app            = express();
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
-//var mysql		   = require('mysql');
 
-//require('./app/models/contactController');
-//require('./config/db')(mysql);
-// var mongoose = require('mongoose'); 
-// var db = require('./config/db');
-// var port = process.env.PORT || 9999; 
-//  mongoose.connect(db.url); 
-// // get all data/stuff of the body (POST) parameters
 // // parse application/json 
  app.use(bodyParser.json()); 
 //app.use(express.logger('dev'));
@@ -28,9 +20,5 @@ var methodOverride = require('method-override');
 
  require('./app/routes')(app); // configure our routes
 
-// app.listen(port);                                  
-// console.log('running on port ' + port);
-// expose app           
-//exports = module.exports = app;  
-  app.listen(9000);
-  console.log("running server 9000");
+ app.listen(9000);
+ console.log("running server 9000");

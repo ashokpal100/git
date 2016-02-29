@@ -6,6 +6,7 @@ angular.module('mainCtrl', []).controller('mainController', function($scope,$htt
       $scope.addContact = function() 
       {
 			console.log($scope.contact);
+			
 			  if (typeof($scope.contact.name)=='undefined') 
 			  	{
 			  		$scope.msg1='Name is required..';
