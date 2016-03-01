@@ -1,6 +1,30 @@
-<!-- public/views/about.html -->
 
-<div class="jumbotron text-center">
-    <h1>About</h1>
-   {{tagline}}
+<div class="jumbotron text-center" ng-init="showContact()"><label>Search :<input ng-model="searchText"></label><br><br>
+<div class="container">
+<div class="row">
+    <div class="col-md-4 col-xs-4" >
+          <label class="control-label">Name</label>
+    </div>
+    <div class="col-md-4 col-xs-4">
+        <label class="control-label">Email</label>
+    </div>
+    <div class="col-md-4 col-xs-4">
+        <label class="control-label">Number</label>
+    </div>
 </div>
+<hr>
+<div class="row" ng-repeat="contact in contactList | filter:searchText">
+    <div class="col-md-4 col-xs-4">
+        <span>{{contact.name}}</span>
+    </div>
+    <div class="col-md-4 col-xs-4">
+        <span>{{contact.email}}</span>
+    </div>
+    <div class="col-md-4 col-xs-4">
+        <span>{{contact.number}}</span>
+    </div><hr>
+</div>
+</div>
+</div>
+
+ 
