@@ -2,11 +2,21 @@ angular.module('mainCtrl', []).controller('mainController', function($scope,$htt
     console.log("I AM IN MAIN CTRL");
     $scope.tagline = 'WELCOME TO HOME';   
     $scope.contact={};
-	
+
       $scope.addContact = function() 
       {
-			console.log($scope.contact);
-			
+      		$scope.contactObj =[];
+
+			var len= Object.keys($scope.contact).length;
+			var len1= Object.keys($scope.contact.subjects).length;
+
+			for (var i = 0; i < len; i++) 
+			{
+				//console.log(i);
+				console.log($scope.contact)[i];
+				//$scope.contactObj.push($scope.contact)[i];
+			};
+			console.log($scope.contactObj);
 			  if (typeof($scope.contact.name)=='undefined') 
 			  	{
 			  		$scope.msg1='Name is required..';

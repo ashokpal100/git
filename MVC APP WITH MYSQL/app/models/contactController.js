@@ -31,7 +31,8 @@ var connection = mysql.createConnection
         exports.add = function(req, res)
        {
             console.log(req.body);
-            res.send(req.body);
+            //console.log(req.body.subject.mca);
+
             var contactUser= {name:req.body.name,email:req.body.email,number:req.body.number};
             connection.query('INSERT INTO contact SET ?',contactUser,function (err, result) 
             {

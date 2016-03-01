@@ -8,7 +8,7 @@
       			<tr>
       				<th><label>Name<i style="color:red">*</i></label></th>
       				<th><label>Email<i style="color:red">*</i></label></th>
-      				<th><label>Number<i style="color:red">*</i></label></th>
+      				<th><label>Mobile Number<i style="color:red">*</i></label></th>
       				<th>Action</th>
       			</tr>
       		</thead>
@@ -54,10 +54,63 @@
                           </div>
                           
                 </td>
-      				<td><button class="btn btn-primary">Add Contact</button></td>
+      				<!-- <td><button class="btn btn-primary">Add Contact</button></td> -->
       			</tr>
       		</tbody>
+          <thead>
+            <tr>
+              <th><label>Gender<!-- <i style="color:red">*</i> --></label></th>
+              <th><label>Subject<!-- <i style="color:red">*</i> --></label></th>
+              <th><label>Age<!-- <i style="color:red">*</i> --></label></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                     <div class="form-group">
+                          <label class="radio-inline">
+                                <input type="radio" name="gender" ng-model="contact.gender" value="Male"> Male</input>
+                          </label>
+                          <label class="radio-inline">
+                                <input type="radio" name="gender" ng-model="contact.gender"value="Female"> Female</input>
+                          </label>
+                        <!--  <i id="validitionMsg1"style="color:red;padding-left:150px;">{{msg1}}</i> -->
+                      </div>
+              </td>
+              <td>
+                     <div class="form-group">
+                          <label class="checkbox-inline">
+                              <input type="checkbox" name="subjects" ng-model="contact.subjects.mca" ng-true-value="'MCA'"> MCA
+                          </label>
+                          <label class="checkbox-inline">
+                              <input type="checkbox" name="subjects" ng-model="contact.subjects.mba" ng-true-value="'MBA'"> MBA
+                          </label>
+                          <label class="checkbox-inline">
+                              <input type="checkbox" name="subjects" ng-model="contact.subjects.mtech" ng-true-value="'M.tech'"> M.tech 
+                          </label>
+                          <label class="checkbox-inline">
+                              <input type="checkbox" name="subjects" ng-model="contact.subjects.btech" ng-true-value="'B.tech'">  B.tech
+                          </label>
+                       <!-- <i id="validitionMsg2"style="color:red;padding-left:150px;" >{{msg2}}</i> -->
+                      </div>
+               </td>
+              <td>
+                        <div class="form-group">
+                           <select ng-model="contact.year">
+                                 <option value="2015">2015</option>
+                                 <option value="2016">2016</option>
+                                 <option value="2017">2017</option>
+                              </select>
+                        <!--   <i id="validitionMsg3"style="color:red;padding-left:150px;">{{msg3}}</i> -->
+                          </div>
+                          
+                </td>
+              <td><button class="btn btn-primary">Add Contact</button></td>
+            </tr>
+          </tbody>
       	</table></form>
-      </div>
+      </div> <pre>
+        {{ contact }}
+    </pre>
       <i id="submitMsg" style="font-weight:bold; color:green; font-size: 200%;">{{submitData}}</i>
 </div>

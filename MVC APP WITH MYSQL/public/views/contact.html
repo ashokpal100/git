@@ -19,7 +19,7 @@
                   <td><button class="btn btn-info" ng-click="update()">Update</button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="deSelect()">Clear</button>&nbsp;</td>
       			</tr>
       			<tr ng-repeat="contact in contactList">
-      				<td>{{contact.name | uppercase}}</td>
+      				<td>{{contact.name}}</td>
       				<td>{{contact.email}}</td>
       				<td>{{contact.number}}</td>
       				<td><button class="btn btn-danger" ng-click="remove(contact.id)">Remove</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-warning "ng-click="edit(contact.id)">Edit</button></td>

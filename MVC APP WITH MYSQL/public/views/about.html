@@ -13,7 +13,7 @@
     </div>
 </div>
 <hr>
-<div class="row" ng-repeat="contact in contactList | filter:searchText">
+<div class="row" ng-repeat="contact in contactList | filter:searchText | orderBy:'number'">
     <div class="col-md-4 col-xs-4">
         <span>{{contact.name}}</span>
     </div>
