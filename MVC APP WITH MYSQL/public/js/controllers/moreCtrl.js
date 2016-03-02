@@ -1,6 +1,6 @@
 angular.module('moreCtrl', []).controller('moreController', function($scope) 
 {
 
-	$scope.tagline = 'More';	
+	 $scope.fruits = [{ 'name': 'apple'},{ 'name': 'orange'},{ 'name': 'pear'},{ 'name': 'naartjie'}];
 	 
 });

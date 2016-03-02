@@ -1,8 +1,8 @@
-<!-- public/views/more.html -->
-
 <div class="jumbotron text-center">
     <h1>More</h1>
     <img src="img/node1.jpg" height="200" width="250">
-     <img src="img/mvc.jpg"  height="200" width="250">
-   {{tagline}}
+     <img src="img/mvc.jpg"  height="200" width="250"><br>
+         <label ng-repeat="fruit in fruits" class="checkbox-inline"><br>
+          <input type="checkbox" value="{{fruit.name}}" ng-model="contact.fruit">{{fruit.name}}
+         </label>
 </div>

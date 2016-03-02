@@ -2,21 +2,22 @@ angular.module('mainCtrl', []).controller('mainController', function($scope,$htt
     console.log("I AM IN MAIN CTRL");
     $scope.tagline = 'WELCOME TO HOME';   
     $scope.contact={};
-
+    $scope.value =  contactSrv.getValue();
+    if ($scope.value=='undefined') 
+    	{
+    		 
+    	} else
+    	{
+    		contactSrv.getData1($scope.value).success(function(response){
+    	   		$scope.contact=response;
+    	   		var data=response;
+    	   		console.log(data);
+	  	   });
+    	};
+    
       $scope.addContact = function() 
       {
-      		$scope.contactObj =[];
-
-			var len= Object.keys($scope.contact).length;
-			var len1= Object.keys($scope.contact.subjects).length;
-
-			for (var i = 0; i < len; i++) 
-			{
-				//console.log(i);
-				console.log($scope.contact)[i];
-				//$scope.contactObj.push($scope.contact)[i];
-			};
-			console.log($scope.contactObj);
+       		   console.log($scope.contact);
 			  if (typeof($scope.contact.name)=='undefined') 
 			  	{
 			  		$scope.msg1='Name is required..';
@@ -61,5 +62,12 @@ angular.module('mainCtrl', []).controller('mainController', function($scope,$htt
 			   		$('#submitMsg').hide();
 			   	}
 	  };
+	  // $scope.update = function(){
+   //      console.log($scope.value);
+   //      contactSrv.update($scope.value ,$scope.contact).success(function(response){
+   //          refresh();
+
+   //      });
+   //  };
 });
 

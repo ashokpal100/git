@@ -1,15 +1,16 @@
 <div class="jumbotron text-center">
     <p>{{ tagline }}</p>
+
+
     <div class="container">
       	<h2>Add Contact</h2>
-             <form name="contactForm" ng-submit="addContact()">
+             <form name="contactForm">
       	<table class="table">
       		<thead>
       			<tr>
       				<th><label>Name<i style="color:red">*</i></label></th>
       				<th><label>Email<i style="color:red">*</i></label></th>
       				<th><label>Mobile Number<i style="color:red">*</i></label></th>
-      				<th>Action</th>
       			</tr>
       		</thead>
       		<tbody>
@@ -18,50 +19,28 @@
                      <div class="form-group">
                          <input type="text"name="name"class="form-control" ng-model="contact.name">
                          <i id="validitionMsg1"style="color:red;padding-left:150px;">{{msg1}}</i>
-                        <!--  <span style="color:red" ng-show="contactForm.name.$dirty && contactForm.name.$invalid">
-                            <i class="glyphicon glyphicon-remove"></i>
-                          <span ng-show="contactForm.name.$error.required">Name is required.</span>
-                          </span>
-                          <span style="color:red" ng-show="contactForm.name.$dirty && contactForm.name.$valid-required">
-                         <i class="glyphicon glyphicon-ok "style="color:green"></i>
-                          </span> -->
                       </div>
               </td>
       				<td>
                      <div class="form-group">
                        <input type="email"name="email"class="form-control" ng-model="contact.email">
                        <i id="validitionMsg2"style="color:red;padding-left:150px;" >{{msg2}}</i>
-                       <!--   <span style="color:red" ng-show="contactForm.email.$dirty && contactForm.email.$invalid">
-                           <i class="glyphicon glyphicon-remove"></i>
-                          <span style="color:red"ng-show="contactForm.email.$error.required">Email is required.</span>
-                          <span style="color:red"ng-show="contactForm.email.$error.email">Invalid email address.</span>
-                          </span>
-                          <span style="color:red" ng-show="contactForm.email.$dirty && contactForm.email.$valid-required">
-                          <i class="glyphicon glyphicon-ok"style="color:green"></i>
-                        </span> -->
                       </div>
                </td>
       				<td>
                         <div class="form-group">
-                          <input type="number"name="number"class="form-control" ng-model="contact.number">
+                          <input type="number"name="number"class="form-control" string-to-number ng-model="contact.number">
                           <i id="validitionMsg3"style="color:red;padding-left:150px;">{{msg3}}</i>
-                            <!-- <span style="color:red"ng-show="contactForm.number.$dirty&& contactForm.number.$invalid"> 
-                                <i class="glyphicon glyphicon-remove"></i>
-                                <span style="color:red"ng-show="contactForm.number.$error.required">Mobile no. is required.</span>
-                                <span style="color:red"ng-show=" contactForm.number.$invalid">Mobile number is invalid</span>
-                             </span>
-                             <span style="color:red"ng-show=" contactForm.number.$dirty&&contactForm.number.$valid-required"><i class="glyphicon glyphicon-ok"style="color:green"></i></span> -->
                           </div>
                           
                 </td>
-      				<!-- <td><button class="btn btn-primary">Add Contact</button></td> -->
       			</tr>
       		</tbody>
           <thead>
             <tr>
-              <th><label>Gender<!-- <i style="color:red">*</i> --></label></th>
-              <th><label>Subject<!-- <i style="color:red">*</i> --></label></th>
-              <th><label>Age<!-- <i style="color:red">*</i> --></label></th>
+              <th><label>Gender</label></th>
+              <th><label>Subject</label></th>
+              <th><label>Year</label></th>
             </tr>
           </thead>
           <tbody>
@@ -74,24 +53,23 @@
                           <label class="radio-inline">
                                 <input type="radio" name="gender" ng-model="contact.gender"value="Female"> Female</input>
                           </label>
-                        <!--  <i id="validitionMsg1"style="color:red;padding-left:150px;">{{msg1}}</i> -->
                       </div>
               </td>
               <td>
                      <div class="form-group">
                           <label class="checkbox-inline">
-                              <input type="checkbox" name="subjects" ng-model="contact.subjects.mca" ng-true-value="'MCA'"> MCA
+                              <input type="checkbox" name="subjects" ng-model="contact.subj1" ng-true-value="'MCA'" ng-init="contact.subj1=contact.subj1"> MCA
                           </label>
                           <label class="checkbox-inline">
-                              <input type="checkbox" name="subjects" ng-model="contact.subjects.mba" ng-true-value="'MBA'"> MBA
+                              <input type="checkbox" name="subjects" ng-model="contact.subj2" ng-true-value="'MBA'"ng-init="contact.subj2=contact.subj2"> MBA
                           </label>
                           <label class="checkbox-inline">
-                              <input type="checkbox" name="subjects" ng-model="contact.subjects.mtech" ng-true-value="'M.tech'"> M.tech 
+                              <input type="checkbox" name="subjects" ng-model="contact.subj3" ng-true-value="'Mtech'"ng-init="contact.subj3=contact.subj3"> M.tech 
                           </label>
                           <label class="checkbox-inline">
-                              <input type="checkbox" name="subjects" ng-model="contact.subjects.btech" ng-true-value="'B.tech'">  B.tech
+                              <input type="checkbox" name="subjects" ng-model="contact.subj4" ng-true-value="'Btech'"ng-init="contact.subj4=contact.subj4">  B.tech
                           </label>
-                       <!-- <i id="validitionMsg2"style="color:red;padding-left:150px;" >{{msg2}}</i> -->
+                       
                       </div>
                </td>
               <td>
@@ -100,17 +78,22 @@
                                  <option value="2015">2015</option>
                                  <option value="2016">2016</option>
                                  <option value="2017">2017</option>
-                              </select>
-                        <!--   <i id="validitionMsg3"style="color:red;padding-left:150px;">{{msg3}}</i> -->
+                            </select>
+                        
                           </div>
                           
                 </td>
-              <td><button class="btn btn-primary">Add Contact</button></td>
-            </tr>
+             
+            </tr><tr><td></td>
+                     <td><button class="btn btn-primary" ng-click="addContact()">Add Contact</button>&nbsp;&nbsp;
+                      <button  id="update" class="btn btn-primary" ng-click="update()">Update</button></td>
+
+                     <td></td>
+                  </tr>
           </tbody>
-      	</table></form>
-      </div> <pre>
-        {{ contact }}
-    </pre>
+      	</table>
+      </form>
+      </div> 
       <i id="submitMsg" style="font-weight:bold; color:green; font-size: 200%;">{{submitData}}</i>
+  
 </div>

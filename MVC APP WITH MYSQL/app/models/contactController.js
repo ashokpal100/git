@@ -7,17 +7,7 @@ var connection = mysql.createConnection
      password : '2016',
      database : 'mydatabase'
    });
-  // connection.connect(function(err)
-  // {
-  //   if(!err)
-  //   {
-  //       console.log("Database is connected ... \n\n");  
-  //     } 
-  //     else 
-  //     {
-  //        console.log("Error connecting database ... \n\n");  
-  //     };
-  // });
+
         exports.findAll = function(req, res)
         {
             console.log("receive a get req");
@@ -30,10 +20,9 @@ var connection = mysql.createConnection
         };
         exports.add = function(req, res)
        {
-            console.log(req.body);
-            //console.log(req.body.subject.mca);
-
-            var contactUser= {name:req.body.name,email:req.body.email,number:req.body.number};
+            var data=req.body;
+            console.log(data);
+            var contactUser= {name:data.name,email:data.email,number:data.number,gender:data.gender,subj1:data.subj1,subj2:data.subj2,subj3:data.subj3,subj4:data.subj4,year:data.year};
             connection.query('INSERT INTO contact SET ?',contactUser,function (err, result) 
             {
                if (err) throw err;
@@ -66,8 +55,8 @@ var connection = mysql.createConnection
         exports.update = function(req,res)
         {
           var id=req.params.id;
-          console.log(req.body);
-          connection.query('update contact SET name=?,email=?,number=? Where id = ?',[req.body.name,req.body.email,req.body.number,id],function (err, result)
+          var data=req.body;
+          connection.query('update contact SET name=?,email=?,number=?,gender=?,year=? Where id = ?',[data.name,data.email,data.number,data.gender,data.year,id],function (err, result)
           {
             if (err) throw err;
             res.send(result);
