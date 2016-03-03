@@ -1,7 +1,7 @@
 angular.module('contactService', [])
 
   .service('contactSrv', function($http) {
-  	var storeValue;
+  	
     return {
             getData : function() {
 				return $http.get('/contactList');
@@ -17,13 +17,8 @@ angular.module('contactService', [])
 			},
             create : function(data) {
                 return $http.post('/contactList', data);
-            },
-            setValue : function(id){
-            	 this.storeValue=id;
-            },
-            getValue : function(){
-            	return this.storeValue;
             }
+            
     }       
 
 });

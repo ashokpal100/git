@@ -41,6 +41,7 @@
               <th><label>Gender</label></th>
               <th><label>Subject</label></th>
               <th><label>Year</label></th>
+               <!-- <th><label>Location</label></th> -->
             </tr>
           </thead>
           <tbody>
@@ -57,41 +58,39 @@
               </td>
               <td>
                      <div class="form-group">
+
                           <label class="checkbox-inline">
-                              <input type="checkbox" name="subjects" ng-model="contact.subj1" ng-true-value="'MCA'" ng-init="contact.subj1=contact.subj1"> MCA
+                              <input type="checkbox" name="subjects" ng-model="contact.subj1" ng-true-value="'MCA'"ng-false-value="null" ng-init="contact.subj1=contact.subj1"> MCA
                           </label>
                           <label class="checkbox-inline">
-                              <input type="checkbox" name="subjects" ng-model="contact.subj2" ng-true-value="'MBA'"ng-init="contact.subj2=contact.subj2"> MBA
+                              <input type="checkbox" name="subjects" ng-model="contact.subj2" ng-true-value="'MBA'"ng-false-value="null"ng-init="contact.subj2=contact.subj2"> MBA
                           </label>
                           <label class="checkbox-inline">
-                              <input type="checkbox" name="subjects" ng-model="contact.subj3" ng-true-value="'Mtech'"ng-init="contact.subj3=contact.subj3"> M.tech 
+                              <input type="checkbox" name="subjects" ng-model="contact.subj3" ng-true-value="'Mtech'"ng-false-value="null"ng-init="contact.subj3=contact.subj3"> M.tech 
                           </label>
                           <label class="checkbox-inline">
-                              <input type="checkbox" name="subjects" ng-model="contact.subj4" ng-true-value="'Btech'"ng-init="contact.subj4=contact.subj4">  B.tech
-                          </label>
-                       
+                              <input type="checkbox" name="subjects" ng-model="contact.subj4" ng-true-value="'Btech'"ng-false-value="null"ng-init="contact.subj4=contact.subj4">  B.tech
+                          </label>                       
                       </div>
                </td>
               <td>
-                        <div class="form-group">
-                           <select ng-model="contact.year">
-                                 <option value="2015">2015</option>
-                                 <option value="2016">2016</option>
-                                 <option value="2017">2017</option>
-                            </select>
-                        
-                          </div>
-                          
-                </td>
-             
+                  <div class="form-group">
+                  <select ng-model="contact.year" ng-options="item.year for item in years">
+                    <option value="">--year--</option>
+                  <!-- <option ng-repeat="item in years" ng-selected="selectedItemvalue==contact.year"value="{{contact.year}}"></option> -->
+                    
+                  </select>
+                          </div>          
+              </td>
+              
             </tr><tr><td></td>
                      <td><button class="btn btn-primary" ng-click="addContact()">Add Contact</button>&nbsp;&nbsp;
-                      <button  id="update" class="btn btn-primary" ng-click="update()">Update</button></td>
 
                      <td></td>
                   </tr>
           </tbody>
       	</table>
+  <!--      {{contact}}  -->
       </form>
       </div> 
       <i id="submitMsg" style="font-weight:bold; color:green; font-size: 200%;">{{submitData}}</i>

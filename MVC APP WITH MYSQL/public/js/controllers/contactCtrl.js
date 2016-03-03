@@ -11,15 +11,10 @@ angular.module('contactCtrl', []).controller('contactController', function($scop
 			   $scope.contact="";
 	  	});
     };
-
    $scope.showContact = function(){
 	  	refresh();
 	};
 
-	$scope.edit = function(id){
-        console.log(id);
-        contactSrv.setValue(id);
-    };
      $scope.remove = function(id){
         if ($window.confirm("Are you sure you want to delete this record?")) 
         {

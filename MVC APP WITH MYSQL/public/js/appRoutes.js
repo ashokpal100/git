@@ -18,6 +18,10 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
          .when('/more', {
             templateUrl: 'views/more.html',
             controller: 'moreController'
+        })
+         .when('/edit/:contactId', {
+            templateUrl: 'views/home.html',
+            controller: 'editController'
         });
 
     $locationProvider.html5Mode(true);

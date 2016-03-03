@@ -1,1 +1,1 @@
-angular.module('mvcApp', ['ngRoute', 'appRoutes', 'mainCtrl', 'contactCtrl',  'abtCtrl', 'moreCtrl', 'contactService']);
+angular.module('mvcApp', ['ngRoute', 'appRoutes', 'mainCtrl', 'contactCtrl',  'abtCtrl', 'moreCtrl','editCtrl', 'contactService']);
