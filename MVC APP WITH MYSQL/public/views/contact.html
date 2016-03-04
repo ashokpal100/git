@@ -21,11 +21,9 @@
       				<td>{{contact.number}}</td>
                               <td>{{contact.gender}}</td>
                               <td>{{contact.year}}</td>
-                              <td>{{contact.subj1}}{{contact.subj2}}{{contact.subj3}}{{contact.subj4}}</td>
-
+                              <td>{{contact.subj1}} {{contact.subj2}} {{contact.subj3}} {{contact.subj4}}</td>
       				<td><button class="btn btn-danger" ng-click="remove(contact.id)">Remove</button>&nbsp;&nbsp;&nbsp;&nbsp;
-
-                               <a href="/edit/{{contact.id}}"><button class="btn btn-warning"ng-click="edit()">Edit</button></a></td>
+                              <a href="/edit/{{contact.id}}"><button class="btn btn-warning"ng-click="edit()">Edit</button></a></td>
       			</tr>
       		</tbody>
       	</table>

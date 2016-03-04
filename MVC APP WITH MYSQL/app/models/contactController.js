@@ -56,7 +56,8 @@ var connection = mysql.createConnection
         {
           var id=req.params.id;
           var data=req.body;
-          connection.query('update contact SET name=?,email=?,number=?,gender=?,year=? Where id = ?',[data.name,data.email,data.number,data.gender,data.year,id],function (err, result)
+          console.log(data);
+          connection.query('update contact SET name=?,email=?,number=?,gender=?,year=?,subj1=?,subj2=?,subj3=?,subj4=? Where id = ?',[data.name,data.email,data.number,data.gender,data.year,data.subj1,data.subj2,data.subj3,data.subj4,id],function (err, result)
           {
             if (err) throw err;
             res.send(result);
