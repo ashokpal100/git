@@ -1,5 +1,5 @@
 var mysql  = require('mysql');
-
+// var mysql = require('../db/mysql').pool;
 var connection = mysql.createConnection
    ({
      host     : 'localhost',

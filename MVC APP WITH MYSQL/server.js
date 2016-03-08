@@ -2,6 +2,7 @@ var express        = require('express');
 var app            = express();
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
+var mysql  = require('mysql');
 
 // // parse application/json 
  app.use(bodyParser.json()); 
@@ -17,6 +18,8 @@ var methodOverride = require('method-override');
 
 // // set the static files location /public/img will be /img for users
  app.use(express.static(__dirname + '/public')); 
+
+ require('./config/db')(mysql); 
 
  require('./app/routes')(app); // configure our routes
 
