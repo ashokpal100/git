@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <style>
+img {
+    width: 100%;
+    height: auto;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="row-height"><br></div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 col-xs-1"></div>
+      <div class="col-md-8 col-xs-10">
+        <div class="row" style="background-color:#4885ed;">
+           <div class="col-md-3 col-xs-3"style="padding-top:10px;padding-bottom:10px;">
+              <img src="logo2.jpg"width="160" height="205">
+           </div>
+           <div class="col-md-9 col-xs-9"style="background-color:;">
+             <div class="row"><span style="font-size:32px;color:white;font-weight:bold;">PROFILE</span></div>
+             <div class="row">---------------------------------------------------------------------------------------------------------------
+              -----------------------------------------------------------------------------------------------------------------------------
+            </div>
+           </div>
+        </div>
+        <div class="row"style="background-color:white;"><br></div>
+         <div class="row"style="text-align:center;font-weight:bold;"><a href = "#home" data-toggle = "tab"style="margin:0;font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;display:block;padding:10px 16px;text-decoration:none;border-radius:2px;border:1px solid;text-align:center;vertical-align:middle;font-weight:bold;white-space:nowrap;background:#ffffff;border-color:#4885ed;background-color:#4885ed;color:#ffffff;border-top-width:1px" target="_blank">
+         Home
+      </a></div><div class="row"style="background-color:white;"><br></div>
+          <div class="row"style="background-color:#F5F5DC;text-align:center;font-weight:bold;"><a href = "#ios" data-toggle = "tab"style="margin:0;font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;display:block;padding:10px 16px;text-decoration:none;border-radius:2px;border:1px solid;text-align:center;vertical-align:middle;font-weight:bold;white-space:nowrap;background:#ffffff;border-color:#4885ed;background-color:#4885ed;color:#ffffff;border-top-width:1px" target="_blank">
+      iOS
+    </a></div><div class="row"style="background-color:white;"><br></div>
+    <div class="row"style="background-color:#F5F5DC;text-align:center;font-weight:bold;"><a href = "#about" data-toggle = "tab"style="margin:0;font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;display:block;padding:10px 16px;text-decoration:none;border-radius:2px;border:1px solid;text-align:center;vertical-align:middle;font-weight:bold;white-space:nowrap;background:#ffffff;border-color:#4885ed;background-color:#4885ed;color:#ffffff;border-top-width:1px" target="_blank">
+      about
+    </a></div><div class="row"style="background-color:white;"><br></div>
+<div class="row">
+<div id = "myTabContent" class = "tab-content">
+   <div class = "tab-pane fade" id = "home"  style="background-color:white;">
+      <p>Tutorials Point is a place for beginners in all technical areas.
+         This website covers most of the latest technologies and explains each of 
+         the technology with simple examples. You also have a 
+         <b>tryit</b> editor, wherein you can edit your code and try
+         out different possibilities of the examples.Tutorials Point is a place for beginners in all technical areas.
+         This website covers most of the latest technologies and explains each of 
+         the technology with simple examples. You also have a 
+         <b>tryit</b> editor, wherein you can edit your code and try
+         out different possibilities of the examplesTutorials Point is a place for beginners in all technical areas.
+         This website covers most of the latest technologies and explains each of 
+         the technology with simple examples. You also have a 
+         <b>tryit</b> editor, wherein you can edit your code and try
+         out different possibilities of the examplesTutorials Point is a place for beginners in all technical areas.
+         This website covers most of the latest technologies and explains each of 
+         the technology with simple examples. You also have a 
+         <b>tryit</b> editor, wherein you can edit your code and try
+         out different possibilities of the examples</p>
+   </div>
+   
+   <div class = "tab-pane fade" id = "ios"  style="background-color:white;">
+      <p>iOS is a mobile operating system developed and distributed by 
+         Apple Inc. Originally released in 2007 for the iPhone, iPod Touch, and 
+         Apple TV. iOS is derived from OS X, with which it shares the Darwin
+         foundation. iOS is Apple's mobile version of the OS X operating system
+         used on Apple computers.</p>
+   </div>
+   <div class = "tab-pane fade" id = "about"  style="background-color:white;">
+      <p>iOS is a mobile operating system developed and distributed by 
+         Apple Inc. Originally released in 2007 for the iPhone, iPod Touch, and 
+         Apple TV. iOS is derived from OS X, with which it shares the Darwin
+         foundation. iOS is Apple's mobile version of the OS X operating system
+         used on Apple computers.</p>
+   </div>
+</div>
+
+<script>
+   $(function(){
+      $('a[data-toggle = "tab"]').on('shown.bs.tab', function (e) {
+         // Get the name of active tab
+         var activeTab = $(e.target).text(); 
+         // Get the name of previous tab
+         var previousTab = $(e.relatedTarget).text(); 
+         
+         $(".active-tab span").html(activeTab);
+         $(".previous-tab span").html(previousTab);
+      });
+   });
+</script>
+
+        </div>
+      </div>
+      <div class="col-md-2 col-xs-1"></div>
+    </div>
+  </div>
+</body>
+</html> 
