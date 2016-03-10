@@ -1,0 +1,88 @@
+<html lang="en" >
+   <head>
+      <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	  <style>
+         .iconDemo .glyph {
+            border-bottom: 1px dotted #ccc;
+            padding: 10px 0 20px;
+            margin-bottom: 20px; 
+         }
+         .iconDemo .preview-glyphs {
+            display: flex;
+            flex-direction: row; 
+         } 
+         .iconDemo .step {
+            flex-grow: 1;
+            line-height: 0.5; 
+         }  
+         .iconDemo .material-icons.md-18 {
+            font-size: 18px; 
+         }
+         .iconDemo .material-icons.md-24 {
+            font-size: 24px; 
+         }
+         .iconDemo .material-icons.md-36 {
+            font-size: 36px; 
+         }
+         .iconDemo .material-icons.md-48 {
+            font-size: 48px; 
+         }
+         .iconDemo .material-icons.md-dark {
+            color: rgba(0, 0, 0, 0.54); 
+         }
+         .iconDemo .material-icons.md-dark.md-inactive {
+            color: rgba(0, 0, 0, 0.26); 
+         }
+         .iconDemo .material-icons.md-light {
+            color: white; 
+         }
+         .iconDemo .material-icons.md-light.md-inactive {
+            color: rgba(255, 255, 255, 0.3); 
+         }
+      </style>
+      <script language="javascript">
+         angular
+            .module('firstApplication', ['ngMaterial'])
+            .controller('iconController', iconController);
+
+         function iconController ($scope) {
+            var iconData = [
+               {name: 'accessibility'  , color: "#777" },
+               {name: 'question_answer', color: "rgb(89, 226, 168)" },
+               {name: 'backup'         , color: "#A00" },
+               {name: 'email'          , color: "#00A" }
+            ];
+            $scope.fonts = [].concat(iconData);            
+            $scope.sizes = [
+               {size:"md-18",padding:0},
+               {size:"md-24",padding:2},
+               {size:"md-36",padding:6},
+               {size:"md-48",padding:10}
+            ];
+         }                 
+      </script>     	  
+   </head>
+   <body ng-app="firstApplication"> 
+      <div id="iconContainer" class="iconDemo" ng-controller="iconController as ctrl" ng-cloak>
+         <div class="glyph" ng-repeat="font in fonts" layout="row">
+            <div ng-repeat="it in sizes" flex layout-align="center center" style="text-align: center;" layout="column">
+            <div flex></div>
+               <div class="preview-glyphs">
+                  <md-icon ng-style="{color: font.color}"
+                     aria-label="{{ font.name }}"
+                     class="material-icons step"
+                     ng-class="it.size">
+                     {{ font.name }}
+                  </md-icon>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

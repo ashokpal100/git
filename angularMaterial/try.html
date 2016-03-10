@@ -1,0 +1,189 @@
+<html lang="en" >
+   <head>
+      <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	  <style>
+div[ng-controller] {
+  overflow:hidden;  
+}
+
+h3 { 
+    padding-left : 30px; 
+    font-size: .8em;
+    margin-bottom:20px;
+  span {
+    padding-left: 20px;
+    color:#FF4081;
+  }
+}
+
+md-toolbar.md-default-theme.md-hue-2:not(.md-menu-toolbar), md-toolbar.md-hue-2:not(.md-menu-toolbar) {  
+  color:white;
+  background-color: rgba(14, 14, 14, 0.9);
+}
+md-content {
+
+  @media (max-width: 959px) {
+    height: 100%;
+  }
+ 
+  div {
+    padding: 20px;
+    overflow: hidden;
+  }
+    div {  
+      animation-property: width;
+      animation-property: height;
+      transition-duration: 650ms;  
+
+      &:first-child.flex-gt-sm75,
+      &:first-child.flex-20,{
+        background-color: tan;
+        background : url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/galapagos_seal.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+                
+        .desktop {  display:none;  }
+        .mobile {  display:block;  }
+        @media (min-width: 960px) {
+          & {
+            animation-property: background-color;
+            transition-duration: 1050ms;
+            background-color: #FDB6B6;
+
+            .desktop {  display:block;  }
+            .mobile {  display:none;  }
+          }
+        }
+      }
+    
+      &:last-child.flex-gt-sm25,
+      &:last-child.flex-80 {
+        background-color: black;
+        background : url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/greenLeafs.jpg");
+        background-repeat: repeat;
+
+
+        .desktop {  display:none;   }
+        .mobile {  display:block;  }
+
+        @media (min-width: 960px) {
+          & {
+            animation-property: background-color;
+            transition-duration: 1250ms;
+            background-color: #CCCCCC;
+            
+            .desktop {  display:block;  }
+            .mobile {  display:none;  }
+          }
+        }
+      }
+      
+    }
+  
+}
+
+.mobile {  
+    display:none;  
+  @media (min-width: 600px) and (max-width: 960px - 1) {
+    & { display:inline-block; }
+  }
+}
+.desktop {  display:inline-block;  
+  @media (min-width: 600px) and (max-width: 960px - 1) {
+    & { display:none; }
+  }
+}
+
+md-content div {
+  span {
+    font-size:1.2em;
+    font-weight: bolder;
+  }  
+}
+
+
+div.overlay {
+  background-color: rgba(255,255,255,0.4);
+  color: rgba(0,0,0,0.7);
+  font-weight:bold;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-radius: 10px;
+  
+  span {
+    color:rgba(171,36,36,1);
+  }  
+}
+
+.hint {
+  padding-left:30px;
+  padding-bottom: 16px;
+  font-size: 0.75em;
+}
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
+*/
+
+	  </style>
+      <script>
+        
+angular.module('MyApp', ['ngMaterial'])
+.controller('AppCtrl', function($scope) {
+    
+});
+      </script>      
+   </head>
+   <body > 
+
+      <div ng-controller="AppCtrl" ng-app="MyApp" layout-fill layout="column">
+  
+  <md-toolbar class="md-hue-2">
+    <h3>
+    Current Layout: 
+    <span class="desktop">layout="row"</span> 
+    <span class="mobile">layout-sm="column"</span>
+    </h3>
+    <div class="hint">
+      Resize your window to see layout changes.
+    </div>
+  </md-toolbar>
+ 
+  <md-content layout="column" layout-gt-sm="row" flex flex-gt-sm>
+      <div flex="20" flex-gt-sm="75" class="md-whiteframe-z2">
+        <div class="desktop overlay">
+          <span>flex=75</span>
+          <br><br> 
+           75% viewport size on larger devices. 
+        </div>
+        <div class="mobile overlay">
+          <span>flex-sm=20</span>
+          <br><br> 
+          20% viewport size on mobile 
+        </div>
+      </div>
+      
+      <div flex="80" flex-gt-sm="25" class="md-whiteframe-z2">
+        <div class="desktop overlay">
+          <span>flex=25</span>
+          <br/><br/> 
+          25% viewport size on larger devices. 
+        </div>  
+        <div class="mobile overlay">
+          <span>flex-sm=80</span>
+          <br/><br/> 
+            80% viewport size on mobile 
+        </div>
+      </div>
+  </md-content>    
+  
+</div>
+   </body>
+</html>
