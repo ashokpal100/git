@@ -19,6 +19,9 @@ app.get('/email', function (req, res) {
 app.get('/email1', function (req, res) {
   res.render('docSignup',{ title : 'Home'});
 });
+app.get('/email2', function (req, res) {
+  res.render('angularMaterial',{ title : 'Home'});
+});
 
 app.listen(9090);
 console.log("running server 9090");
