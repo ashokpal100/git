@@ -14,15 +14,23 @@
    </head>
    <body ng-app="firstApplication"> 
       <div class="frameContainer" ng-controller="frameController"layout layout-align="center"layout-wrap style="padding-bottom:0px;padding-left:1px;padding-right:1px;">
-         
+      
          <md-whiteframe class="md-whiteframe-1dp"  layout="row" flex-xs="100" flex-gt-sm="70" flex-gt-md="60" layout layout-align="left"style="height:25%;background-color:;">
             <img src="bonadea.jpg" style="width:150px;height:100px;">
-            <span style="font-size:32px;color:;font-weight:bold;padding-left:10px;">Bonadea</span>
+            <span style="font-size:32px;color:;font-weight:bold;padding-left:10px;">Bonadea Mhealth</span>
          </md-whiteframe>
-         <md-whiteframe class="md-whiteframe-2dp" layout="row" flex-xs="100" flex-gt-sm="70" flex-gt-md="60"layout layout-align="center center"style="background-color:#DCDCDC;"ng-click="ShowHide()">
-         Tutorials    Point    place   beginners   in   all   technical Point    place   beginners   in   all   technical
+         <md-whiteframe class="md-whiteframe-2dp" layout="row" flex-xs="100" flex-gt-sm="70" flex-gt-md="60"layout layout-align="center center"style="background-color:#DCDCDC;"ng-click="ShowHide('whFrm3')">
+
+                  <div layout="column" flex="20" layout layout-align="center center">kcjxv
+                  </div>
+                  <div layout="column" flex="20" layout layout-align="center center">kcjxv1
+                  </div>
+                  <div layout="column" flex="20" layout layout-align="center center">kcjxv1
+                  </div>
+                  <div layout="column" flex="20" layout layout-align="center center">kcjxv1
+                  </div>
          </md-whiteframe>
-         <md-whiteframe class="md-whiteframe-3dp" ng-hide="IsHidden"layout="row" flex-xs="100" flex-gt-sm="70" flex-gt-md="60"layout layout-align="center center"style="padding-left:3px;">
+         <md-whiteframe class="md-whiteframe-3dp" ng-hide="IsHidden" id="whFrm3"layout="row" flex-xs="100" flex-gt-sm="70" flex-gt-md="60"layout layout-align=""style="padding-left:3px;padding-right:3px">
                     <p>Tutorials Point is a place for beginners in all technical areas.
                    This website covers most of the latest technologies and explains each of 
                    the technology with simple examples. You also have a 
@@ -41,11 +49,18 @@
                    <b>tryit</b> editor, wherein you can edit your code and try
                    out different possibilities of the examples</p>  
          </md-whiteframe>
-         <md-whiteframe class="md-whiteframe-4dp" style="background-color:#DCDCDC;"layout="row" flex-xs="100" flex-gt-sm="70" flex-gt-md="60"layout layout-align="center center"ng-click="ShowHide1()">
-           <!-- <input type="button" value="ABOUT" ng-click="ShowHide1()"style="background-color:#DCDCDC;border:0"> -->
-           About fhsdjf dsjghdjg sdjghdjsg
+         <md-whiteframe class="md-whiteframe-4dp" style="background-color:#DCDCDC;"layout="row" flex-xs="100" flex-gt-sm="70" flex-gt-md="60"layout layout-align="center center"ng-click="ShowHide('whFrm5')">
+
+                  <div layout="column" flex="20" layout layout-align="center center">kcjxv
+                  </div>
+                  <div layout="column" flex="20" layout layout-align="center center">kcjxv2
+                  </div>
+                  <div layout="column" flex="20" layout layout-align="center center">kcjxv2
+                  </div>
+                  <div layout="column" flex="20" layout layout-align="center center">kcjxv2
+                  </div>
          </md-whiteframe>
-          <md-whiteframe class="md-whiteframe-5dp" ng-hide="IsHidden1"layout="row" flex-xs="100" flex-gt-sm="70" flex-gt-md="60"layout layout-align="center center">
+          <md-whiteframe class="md-whiteframe-5dp" ng-hide="IsHidden1" id="whFrm5"layout="row" flex-xs="100" flex-gt-sm="70" flex-gt-md="60"layout layout-align=""style="padding-left:3px;">
                     <p>Tutorials Point is a place for beginners in all technical areas.
                    This website covers most of the latest technologies and explains each of 
                    the technology with simple examples. You also have a 
@@ -64,28 +79,39 @@
                    <b>tryit</b> editor, wherein you can edit your code and try
                    out different possibilities of the examples</p>  
          </md-whiteframe>
-         <md-whiteframe class="md-whiteframe-6dp" style="background-color:#DCDCDC;"layout="row" flex-xs="100" flex-gt-sm="70" flex-gt-md="60"layout layout-align="center center" ng-click="ShowHide2()">
-         <!--   <input type="button" value="MORE" style="background-color:#DCDCDC;border:0;">-->       
-         More
+         <md-whiteframe class="md-whiteframe-6dp" style="background-color:#DCDCDC;"layout="row" flex-xs="100" flex-gt-sm="70" flex-gt-md="60"layout layout-align="center center" ng-click="ShowHide('whFrm7')">
+      
+                  <div layout="column" flex="20" layout layout-align="center center">kcjxv
+                  </div>
+                  <div layout="column" flex="20" layout layout-align="center center">kcjxv3
+                  </div>
+                  <div layout="column" flex="20" layout layout-align="center center">kcjxv3
+                  </div>
+                  <div layout="column" flex="20" layout layout-align="center center">kcjxv3
+                  </div>
            </md-whiteframe>
-          <md-whiteframe class="md-whiteframe-7dp" ng-hide="IsHidden2"layout="row" flex-xs="100" flex-gt-sm="70" flex-gt-md="60"layout layout-align="center center">
-                    <p>Tutorials Point is a place for beginners in all technical areas.
+          <md-whiteframe class="md-whiteframe-7dp" ng-hide="IsHidden2"id="whFrm7"layout="row" flex-xs="100" flex-gt-sm="70" flex-gt-md="60"layout layout-align=""style="padding-left:3px;">
+                    <div layout="column" flex="65">
+                        flex-65<p>Tutorials Point is a place for beginners in all technical areas.
                    This website covers most of the latest technologies and explains each of 
                    the technology with simple examples. You also have a 
                    <b>tryit</b> editor, wherein you can edit your code and try
                    out different possibilities of the examples.Tutorials Point is a place for beginners in all technical areas.
                    This website covers most of the latest technologies and explains each of 
                    the technology with simple examples. You also have a 
-                   <b>tryit</b> editor, wherein you can edit your code and try
-                   out different possibilities of the examplesTutorials Point is a place for beginners in all technical areas.
-                   This website covers most of the latest technologies and explains each of 
-                   the technology with simple examples. You also have a 
-                   <b>tryit</b> editor, wherein you can edit your code and try
-                   out different possibilities of the examplesTutorials Point is a place for beginners in all technical areas.
-                   This website covers most of the latest technologies and explains each of 
-                   the technology with simple examples. You also have a 
-                   <b>tryit</b> editor, wherein you can edit your code and try
-                   out different possibilities of the examples</p>  
+                   <b>tryit</b> editor, </p>
+                    </div>
+                    <div layout="column"ng-repeat="item in items" style="background-color:DCDCDC;">
+                        <div layout="row" flex="10">
+                            {{item.name}}
+                        </div>
+                        <div layout="row" flex="10">
+                             {{item.email}} 
+                        </div>
+                        <div layout="row" flex="10">
+                            {{item.number}}
+                        </div>
+                  </div>
          </md-whiteframe>
       </div>
    </body>
