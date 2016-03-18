@@ -1,0 +1,181 @@
+<html lang="en" >
+   <head>
+      <script>document.write('<base href="' + document.location + '" />');</script>
+    <link rel="stylesheet" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.0-rc1/angular-material.css" />
+    <script src="https://code.angularjs.org/1.4.9/angular.js"></script>
+    <script src="https://code.angularjs.org/1.4.9/angular-animate.js"></script>
+    <script src="https://code.angularjs.org/1.4.9/angular-messages.js"></script>
+    <script src="https://code.angularjs.org/1.4.9/angular-aria.js"></script>
+    
+    <script src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.0-rc1/angular-material.js"></script>
+      <script>
+      angular.module('dialogApp', ['ngMaterial','ngMessages']).controller('AppCtrl', function($scope, $mdDialog, $mdMedia) {
+  $scope.status = '  ';
+  $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
+  $scope.showAlert = function(ev) {
+    // Appending dialog to document.body to cover sidenav in docs app
+    // Modal dialogs should fully cover application
+    // to prevent interaction outside of dialog
+    $mdDialog.show(
+      $mdDialog.alert()
+        .parent(angular.element(document.querySelector('#popupContainer')))
+        .clickOutsideToClose(true)
+        .title('This is an alert title')
+        .textContent('You can specify some description text in here.')
+        .ariaLabel('Alert Dialog Demo')
+        .ok('Got it!')
+        .targetEvent(ev)
+    );
+  };
+  $scope.showConfirm = function(ev) {
+    // Appending dialog to document.body to cover sidenav in docs app
+    var confirm = $mdDialog.confirm()
+          .title('Would you like to delete your debt?')
+          .textContent('All of the banks have agreed to forgive you your debts.')
+          .ariaLabel('Lucky day')
+          .targetEvent(ev)
+          .ok('Please do it!')
+          .cancel('Sounds like a scam');
+    $mdDialog.show(confirm).then(function() {
+      $scope.status = 'You decided to get rid of your debt.';
+    }, function() {
+      $scope.status = 'You decided to keep your debt.';
+    });
+  };
+  $scope.showPrompt = function(ev) 
+  {
+    alert("hiii");
+    //  var confirm = $mdDialog.prompt()
+    // .title('Rediger ' + value)
+    // .textContent('Indtast en ny værdi for: ' + value)
+    // .placeholder(getValue())
+    // .ariaLabel('Ny ' + value)
+    // .targetEvent(ev)
+    // .ok('Accepter')
+    // .cancel('Annuller');
+    // $mdDialog.show(confirm).then(function(result) {
+    //   setValue(result);
+    // });
+    var confirm = $mdDialog.prompt()
+          .title('What would you name your dog?')
+          .textContent('Bowser is a common name.')
+          .placeholder('dog name')
+          .ariaLabel('Dog name')
+          .targetEvent(ev)
+          .ok('Okay!')
+          .cancel('I\'m a cat person');
+    $mdDialog.show(confirm).then(function(result) {
+      $scope.status = 'You decided to name your dog ' + result + '.';
+    }, function() {
+      $scope.status = 'You didn\'t name your dog.';
+    });
+  };
+  $scope.showAdvanced = function(ev) {
+    var useFullScreen = ($mdMedia('md') || $mdMedia('md'))  && $scope.customFullscreen;
+    $mdDialog.show({
+      controller: DialogController,
+      templateUrl: 'dialog1.tmpl.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose:true,
+      fullscreen: useFullScreen
+    })
+    .then(function(answer) {
+      $scope.status = 'You said the information was "' + answer + '".';
+    }, function() {
+      $scope.status = 'You cancelled the dialog.';
+    });
+    $scope.$watch(function() {
+      return $mdMedia('xs') || $mdMedia('sm');
+    }, function(wantsFullScreen) {
+      $scope.customFullscreen = (wantsFullScreen === true);
+    });
+  };
+  $scope.showTabDialog = function(ev) {
+    $mdDialog.show({
+      controller: DialogController,
+      templateUrl: 'tabDialog.tmpl.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose:true
+    })
+        .then(function(answer) {
+          $scope.status = 'You said the information was "' + answer + '".';
+        }, function() {
+          $scope.status = 'You cancelled the dialog.';
+        });
+  };
+});
+function DialogController($scope, $mdDialog) {
+  $scope.hide = function() {
+    $mdDialog.hide();
+  };
+  $scope.cancel = function() {
+    $mdDialog.cancel();
+  };
+  $scope.answer = function(answer) {
+    $mdDialog.hide(answer);
+  };
+}
+      </script>
+      <style type="text/css">
+      .dialogdemoBasicUsage #popupContainer {
+  position: relative; }
+.dialogdemoBasicUsage .footer {
+  width: 100%;
+  text-align: center;
+  margin-left: 20px; }
+.dialogdemoBasicUsage .footer, .dialogdemoBasicUsage .footer > code {
+  font-size: 0.8em;
+  margin-top: 50px; }
+.dialogdemoBasicUsage button {
+  width: 200px; }
+.dialogdemoBasicUsage div#status {
+  color: #c60008; }
+.tabsdemoDynamicHeight md-content {
+  background-color: transparent !important; }
+  .tabsdemoDynamicHeight md-content md-tabs {
+    background: #f6f6f6;
+    border: 1px solid #e1e1e1; }
+    .tabsdemoDynamicHeight md-content md-tabs md-tabs-wrapper {
+      background: white; }
+  .tabsdemoDynamicHeight md-content h1:first-child {
+    margin-top: 0; }
+      </style>
+   </head>
+<body ng-app="dialogApp">
+  <div ng-controller="AppCtrl" class="md-padding" id="popupContainer" ng-cloak>
+  <p class="inset">
+    Open a dialog over the app's content. Press escape or click outside to close the dialog and
+    send focus back to the triggering button.
+  </p>
+  <div class="dialog-demo-content" layout="row" layout-wrap layout-margin layout-align="center">
+    <md-button class="md-primary md-raised" ng-click="showAlert($event)"   >
+      Alert Dialog
+    </md-button>
+    <md-button class="md-primary md-raised" ng-click="showConfirm($event)" >
+      Confirm Dialog
+    </md-button>
+    <md-button class="md-primary md-raised" ng-click="showPrompt($event)"  >
+      Prompt Dialog
+    </md-button>
+    <md-button class="md-primary md-raised" ng-click="showAdvanced($event)">
+      Custom Dialog
+    </md-button>
+    <md-button class="md-primary md-raised" ng-click="showTabDialog($event)" >
+      Tab Dialog
+    </md-button>
+  </div>
+  <p class="footer">Note: The <b>Confirm</b> dialog does not use <code>$mdDialog.clickOutsideToClose(true)</code>.</p>
+  <div hide-gt-sm layout="row" layout-align="center center" flex>
+      <md-checkbox ng-model="customFullscreen" aria-label="Fullscreen Custom Dialog">Force Custom Dialog Fullscreen</md-checkbox>
+    </div>
+  <div ng-if="status" id="status">
+    <b layout="row" layout-align="center center" class="md-padding">
+      {{status}}
+    </b>
+  </div>
+</div>
+
+</body>
+</html>

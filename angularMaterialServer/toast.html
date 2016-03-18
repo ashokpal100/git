@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title>AngularJS Plunker</title>
+    <link rel="stylesheet" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.0-rc1/angular-material.css" />
+    <script src="https://code.angularjs.org/1.4.9/angular.js"></script>
+    <script src="https://code.angularjs.org/1.4.9/angular-animate.js"></script>
+    <script src="https://code.angularjs.org/1.4.9/angular-messages.js"></script>
+    <script src="https://code.angularjs.org/1.4.9/angular-aria.js"></script>
+    
+    <script src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.0-rc1/angular-material.js"></script>
+    <script type="text/javascript">
+    (function() {
+  var isDlgOpen;
+  angular
+    .module('toastDemo2', ['ngMaterial'])
+    .controller('AppCtrl', function($scope, $mdToast) {
+      $scope.showCustomToast = function() {
+        $mdToast.show({
+          hideDelay   : 3000,
+          position    : 'right',
+          controller  : 'ToastCtrl',
+          templateUrl : 'toast-template.html'
+        });
+      };
+    })
+    .controller('ToastCtrl', function($scope, $mdToast, $mdDialog) {
+      $scope.closeToast = function() {
+        if (isDlgOpen) return;
+        $mdToast
+          .hide()
+          .then(function() {
+            isDlgOpen = false;
+          });
+      };
+      $scope.openMoreInfo = function(e) {
+        if ( isDlgOpen ) return;
+        isDlgOpen = true;
+        $mdDialog
+          .show($mdDialog
+            .alert()
+            .title('More info goes here.')
+            .textContent('Something witty.')
+            .ariaLabel('More info')
+            .ok('Got it')
+            .targetEvent(e)
+          )
+          .then(function() {
+            isDlgOpen = false;
+          })
+      };
+    });
+})();
+    </script>
+  </head>
+
+  <body ng-app="toastDemo2">
+<div ng-controller="AppCtrl" class="inset" ng-cloak style="height:300px; padding: 25px;">
+  <div layout="row">
+    <p>
+      Toast can have multiple actions:
+    </p>
+    <md-button ng-click="showCustomToast()" class="md-raised" style="padding-left: 10px;padding-right: 10px;">
+      Show Custom Toast
+    </md-button>
+  </div>
+</div>
+
+  </body>
+
+</html>

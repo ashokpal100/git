@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style type="text/css">
+#add_cont{
+    margin-top: 118px;
+    margin-left: 498px;
+}
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+</head>
+<body>
+<div class="container" ng-app="two_way" ng-controller="two_way_control">
+<form class="form-inline" id="add_cont">
+<input type="text" name="id" ng-model="news.id" class="form-control" placeholder="Enter id"><br><br>
+<input type="file" name="pic" ng-model="news.pic"placeholder="Enter Image URL"><br><br>
+<input type="submit" class="btn btn-success" value="Add" ng-click="submit(news)">
+</form>
+</div>
+<script>
+var app=angular.module("two_way",[]);
+app.controller("two_way_control",function($scope,$http,$interval){
+$scope.news={};
+/* put $http into a service. Keep controllers thin */
+console.log($scope.news);
+$scope.submit = function(newpost){
+    /* processData:false why do you need this? */
+    /* I can see the code behind this $interval */
+        console.log("triggering post");
+        $http({method:"post", url:"http://localhost:3000/addd", data:newpost})
+            .then(function(data){
+                /* Success callback */
+                console.log("success");
+            },function(err){
+                /* Failure callback */
+                console.log("failed");
+            });
+    };
+});
+</script>    
+</body>
+</html>

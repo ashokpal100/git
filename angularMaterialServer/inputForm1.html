@@ -1,0 +1,153 @@
+<html lang="en" >
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+      <script>
+        angular.module('inputIconDemo', ['ngMaterial', 'ngMessages']).controller('DemoCtrl', function($scope) 
+        {
+            $scope.user = {};
+    // $scope.staes = [
+    //     {state:'AL'},
+    //     {state:'MP'},
+    //     {state:'UP'},
+    //     {state:'HR'},
+    //     {state:'DL'}];
+    $scope.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS ' +
+    'MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI ' +
+    'WY').split(' ').map(function(state) {
+        return {abbrev: state};
+      });
+    $scope.submit=function(){
+      console.log($scope.user);
+    };
+  })
+  // .config(function($mdThemingProvider) {
+  //   $mdThemingProvider.theme('docs-dark', 'default')
+  //     .primaryPalette('red')
+  //     .dark();
+  // });
+      </script>
+      <link rel="stylesheet" href=>  
+      <style type="text/css">
+.inputdemoBasicUsage .md-datepicker-button {
+  width: 36px; }
+      </style>  
+   </head>
+<body ng-app="inputIconDemo" ng-controller="DemoCtrl">
+  <div class="frameContainer" layout layout-align="center"layout-wrap style="padding-top:15px;padding-left:1px;padding-right:1px;">
+          <md-whiteframe class="md-whiteframe-1dp"  layout="row" flex-xs="100" flex-gt-sm="70" flex-gt-md="60" layout layout-align="left"style="height:25%;background-color:#ADD8E6;">
+            <img src="bonadea.jpg" style="width:150px;height:100px;">
+            <span style="font-size:32px;color:;font-weight:bold;padding-left:10px;">Bonadea Mhealth</span>
+         </md-whiteframe>
+         <md-whiteframe class="md-whiteframe-1dp"layout="row" flex-xs="100" flex-gt-sm="70" flex-gt-md="60">
+               <md-content flex=""layout-padding class="md-inline-form" layout layout-align="center center"style="">
+                  <md-input-container>
+                        <label>Title</label>
+                        <input ng-model="user.title"disabled>
+                  </md-input-container>
+                  <md-input-container>
+                      <label>Company Name</label>
+                      <input ng-model="user.company" disabled>
+                  </md-input-container>
+                  <md-input-container>
+                        <label>Email</label>
+                        <input ng-model="user.email" type="email"disabled>
+                  </md-input-container>
+                </md-content>
+         </md-whiteframe>
+        <md-whiteframe class="md-whiteframe-1dp"  layout="row" flex-xs="100" flex-gt-sm="70" flex-gt-md="60" layout layout-align="center center"style="background-color:">
+               <md-content layout-padding>
+               <form name="userForm">
+               <div flex="100"layout="row" class="md-inline-form" layout layout-align="center center">
+                  <md-input-container><!-- <i class="fa fa-user"></i> -->
+                        <label>Full Name *</label>
+                        <input ng-model="user.fullName" name="fullName" required ng-pattern="/^[a-z]{1,20}$/" md-placeholder="enter name a to z">
+                          <div ng-messages="userForm.fullName.$error" role="alert" multiple>
+                            <div ng-message="required" class="my-message">Name is required.</div>
+                            <div ng-message="pattern" class="my-message">Max length 20 char</div>
+                         </div>
+                  </md-input-container>
+                  <md-input-container>
+                      <label> Mobile No. *</label>
+                      <input ng-model="user.number"  name="number" type="numer"required ng-pattern="/^[0-9]{10}$/" md-maxlength="10">
+                        <div ng-messages="userForm.number.$error" role="alert" multiple>
+                            <div ng-message="required" class="my-message">Mobile number is required.</div>
+                            <div ng-message="pattern" class="my-message">Only Number is allow</div>
+                            <div ng-message="md-maxlength" class="my-message">Don't use the long 10 digit</div>
+                         </div>
+                  </md-input-container>
+                  <md-input-container>
+                        <label> Email *</label>
+                        <input ng-model="user.email" name="email" type="email" required>
+                           <div ng-messages="userForm.number.$error" role="alert" multiple>
+                            <div ng-message="required" class="my-message">Email is not valid.</div>
+                         </div>
+                  </md-input-container>
+               </div>
+               <div flex="100"layout="row" class="md-inline-form" layout layout-align="">
+                  <md-input-container>
+                        <label>Address *</label>
+                        <input ng-model="user.address" name="address" required ng-pattern="/^[a-z]{1,20}$/" md-placeholder="enter name a to z">
+                          <div ng-messages="userForm.address.$error" role="alert" multiple>
+                            <div ng-message="required" class="my-message">address is required.</div>
+                            <div ng-message="pattern" class="my-message">Max length 20 char</div>
+                         </div>
+                  </md-input-container>
+                  <md-input-container>
+                      <label> City*</label>
+                      <input ng-model="user.city"  name="city"required>
+                        <div ng-messages="userForm.city.$error" role="alert" multiple>
+                            <div ng-message="required" class="my-message">City is required.</div>
+                         </div>
+                  </md-input-container>
+                  <md-input-container>
+                    <label>State</label>
+<!--                     <select ng-model="user.state" ng-options="item.state for item in states">
+                    <option value="">--state--</option>    
+                   </select> -->
+                    <md-select ng-model="user.state">
+                      <md-option ng-repeat="state in states" value="{{state.abbrev}}">
+                        {{state.abbrev}}
+                      </md-option>
+                    </md-select>
+                  </md-input-container>
+               </div>
+               <div flex="100"layout="row" class="md-inline-form" layout layout-align="">
+                 </md-input-container>
+                          <md-datepicker ng-model="user.submissionDate" md-placeholder="Enter date">
+                          </md-datepicker>
+                 <md-input-container>
+                       <label>Postal Code</label>
+                      <input name="postalCode" ng-model="user.postalCode" placeholder="12345"required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+                      <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
+                        <div ng-message="required" class="my-message">You must supply a postal code.</div>
+                        <div ng-message="pattern" class="my-message">That doesn't look like a valid postal code.</div>
+                        <div ng-message="md-maxlength" class="my-message">Don't use the long version silly...we don't need to be that specific...</div>
+                      </div>
+          </md-input-container>
+          <md-input-container>
+                  <label>Biography</label>
+                        <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+           </md-input-container>
+              </div>
+              <div flex="100"layout="row" class="md-inline-form" layout layout-align="center center">
+          <md-button class="md-raised md-primary" ng-click="submit()">Submit</md-button>
+        </div>
+             </form></md-content>
+        </div>
+        
+      </form>
+    </div>
+  </md-content>
+</md-whiteframe>
+  </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title>AngularJS Plunker</title>
+    <link rel="stylesheet" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.0-rc1/angular-material.css" />
+    <script src="https://code.angularjs.org/1.4.9/angular.js"></script>
+    <script src="https://code.angularjs.org/1.4.9/angular-animate.js"></script>
+    <script src="https://code.angularjs.org/1.4.9/angular-messages.js"></script>
+    <script src="https://code.angularjs.org/1.4.9/angular-aria.js"></script>
+    
+    <script src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.0-rc1/angular-material.js"></script>
+  </head>
+
+  <body>
+      <md-toolbar layout="row" class="md-whiteframe-z3" style="padding:0px;margin:0px;position:fixed;">
+<div layout="row" layout-padding class="bg-dark-blue nav-dark" layout-align="space-between center">
+<div>
+    <md-button>Home</md-button>
+    <md-button>Item 1</md-button>
+    <md-button>Item 2</md-button>
+    <md-menu>
+        <md-button md-menu-origin ng-click="$mdOpenMenu()">Help</md-button>
+        <md-menu-content width="2">
+            <md-menu-item>
+                <md-button>Help</md-button>
+            </md-menu-item>
+            <md-menu-item>
+                <md-button>About</md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
+</div>
+<div class="nav-buttons">
+    <md-button class="md-raised md-accent">My profile</md-button>
+    <md-button class="md-raised md-warn">Log Out</md-button>
+</div>
+</md-toolbar>
+
+  </body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="plunker">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>AngularJS Plunker</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link rel="stylesheet" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.0-rc1/angular-material.css" />
+    <script src="https://code.angularjs.org/1.4.9/angular.js"></script>
+    <script src="https://code.angularjs.org/1.4.9/angular-animate.js"></script>
+    <script src="https://code.angularjs.org/1.4.9/angular-messages.js"></script>
+    <script src="https://code.angularjs.org/1.4.9/angular-aria.js"></script>
+    
+    <script src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.0-rc1/angular-material.js"></script>
+    <script src="prompt.js"></script>
+  </head>
+
+  <body ng-controller="MainCtrl">
+    <md-content class="md-padding">
+          <h1 class="md-display-2">Diverse</h1>
+          <div class="table-responsive col-md-12">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th ng-repeat="tablerow in tableRows" class="col-md-3">
+                  {{tablerow}}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="ret in retter | filter:filterNotFunction()">
+                <td >
+                  {{ret.name}} <!--<i class="fa fa-pencil" ng-click="showPrompt($event, ret, 'Navn')"></i>-->
+                  <button ng-click="showPrompt($event, ret, 'Navn')">test</button>
+                </td>
+                <td>
+                  {{ret.info}} <i class="fa fa-pencil" ng-click="showPrompt($event, ret, 'Info')"></i>
+                </td>
+                <td>
+                  {{ret.type}} <i class="fa fa-pencil" ng-click="showPrompt($event, ret, 'Type')"></i>
+                </td>
+                <td  ng-click="changeRetActive(ret)">
+                  <i class="fa fa-check" ng-if="true == ret.active" style="color:green"></i>
+                  <i class="fa fa-times" ng-if="false == ret.active" style="color:red"></i>
+                </td>
+                <td>
+                  <i class="fa fa-trash" ng-click="sletRet(ret)"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </md-content>
+  </body>
+
+</html>
