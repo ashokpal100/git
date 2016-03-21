@@ -10,18 +10,19 @@ app.set('view engine', 'jade')
 app.set('views', __dirname + '/views')
 
 app.use(express.static(__dirname + '/public')); 
+
 app.get('/', function (req, res) {
-  res.render('emailTemplate',{ title : 'Home'});
+  res.render('D02',{ title : 'Home'});
 });
-app.get('/email', function (req, res) {
-  res.render('confirmEmail',{ title : 'Home'});
-});
-app.get('/email1', function (req, res) {
-  res.render('docSignup',{ title : 'Home'});
-});
-app.get('/email2', function (req, res) {
-  res.render('angularMaterial',{ title : 'Home'});
-});
+// app.get('/email', function (req, res) {
+//   res.render('confirmEmail',{ title : 'Home'});
+// });
+// app.get('/email1', function (req, res) {
+//   res.render('docSignup',{ title : 'Home'});
+// });
+// app.get('/email2', function (req, res) {
+//   res.render('angularMaterial',{ title : 'Home'});
+// });
 
 app.listen(9090);
 console.log("running server 9090");
