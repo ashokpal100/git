@@ -12,7 +12,7 @@ app.set('views', __dirname + '/views')
 app.use(express.static(__dirname + '/public')); 
 
 app.get('/', function (req, res) {
-  res.render('D14',{ title : 'Home'});
+  res.render('BP01',{ title : 'Home'});
 });
 // app.get('/email', function (req, res) {
 //   res.render('confirmEmail',{ title : 'Home'});
