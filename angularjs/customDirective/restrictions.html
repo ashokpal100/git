@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<body ng-app="greetings">
+     <div welcome></div>
+     <div goodbye></div>
+<script>
+angular.module('greetings', [])
+.directive("welcome", function() {
+  return {
+    restrict: "A",
+    link: function(){
+      alert("Howdy!");
+    }
+  }
+})
+
+.directive("goodbye", function() {
+  return {
+    restrict: "A",
+    link: function(){
+      alert("See ya later!");
+    }
+  }
+});
+//To recap: "E" is for element, "A" is for attribute, "C" is for class, and "M" is for comment. Attributes are going to be the main ones as far as adding behaviors that get used the most. If you don't specify the restrict property it will default to "A"
+</script>
+
+</body>
+</html>

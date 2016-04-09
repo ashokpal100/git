@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<body ng-app="greetings">
+    <welcome>
+<script>
+angular.module('greetings', [])
+.directive("welcome", function() {
+  return {
+    restrict: "E",
+    template: "<div>Howdy there! You look splendid.</div>"
+  }
+});
+</script>
+
+</body>
+</html>

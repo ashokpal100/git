@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body ng-app="greetings">
+  <welcome hello howdy hi>Say something!</welcome>
+<script>
+angular.module('greetings', [])
+.directive("welcome", function() {
+  return {
+    restrict: "E",
+    controller: function($scope) {
+      $scope.words = [];
+
+      this.sayHello = function() {
+        $scope.words.push("hello");
+      };
+
+      this.sayHowdy = function() {
+        $scope.words.push("howdy");
+      };
+
+      this.sayHi = function() {
+        $scope.words.push("hi");
+      };
+    },
+
+    link: function(scope, element){
+      element.bind("mouseenter", function() {
+        console.log(scope.words);
+      });
+    }
+  }
+})
+.directive("hello", function() {
+  return {
+    require: "welcome",
+    link: function (scope, element, attrs, welcomeCtrl) {
+      welcomeCtrl.sayHowdy();
+    }
+  };
+ })
+ .directive("howdy", function() {
+  return {
+    require: "welcome",
+    link: function (scope, element, attrs, welcomeCtrl) {
+      welcomeCtrl.sayHowdy();
+    }
+  };
+ })
+
+.directive("hi", function() {
+  return {
+    require: "welcome",
+    link: function (scope, element, attrs, welcomeCtrl) {
+      welcomeCtrl.sayHi();
+    }
+  };
+ });// recap: "E" is for element, "A" is for attribute, "C" is for class, and "M" is for comment. Attributes are going to be the main ones as far as adding behaviors that get used the most. If you don't specify the restrict property it will default to "A"
+</script>
+
+</body>
+</html>

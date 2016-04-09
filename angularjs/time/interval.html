@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body ng-app="myapp" ng-controller="MyController">
+
+<script>
+var myapp = angular.module("myapp", []);
+
+myapp.controller("MyController", function($scope, $interval){
+
+    $interval(callAtInterval, 5000);
+
+});
+
+function callAtInterval() {
+    alert("Interval occurred");//used repeated
+}
+</script>
+
+</body>
+</html>
