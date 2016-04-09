@@ -1,0 +1,141 @@
+html(lang='en')
+  head
+    link(rel='stylesheet', href='http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css')
+    script(src='http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js')
+    script(src='http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js')
+    script(src='http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js')
+    script(src='http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js')
+    script(src='http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+    script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js')
+    script.
+      angular.module('firstApplication', ['ngMaterial']).controller('frameController', frameController);
+      function frameController ($scope)
+      {
+      $scope.IsHidden = true;
+      $scope.IsHidden1 = true;
+      $scope.IsHidden2 = true;
+      $scope.items = [{"name":"Ata","email":"test@.com","number":"9090909090"},
+      {"name":"pal","email":"test1@.com","number":"19090909090"}]
+      $scope.ShowHide = function (value) {
+      if (value=='whFrm3')
+      {
+      $scope.IsHidden = $scope.IsHidden ? false : true;
+      }
+      else if (value=='whFrm5')
+      {
+      $scope.IsHidden1 = $scope.IsHidden1 ? false : true;
+      }
+      else
+      {
+      $scope.IsHidden2 = $scope.IsHidden2 ? false : true;
+      };
+      };
+      };
+    style(type='text/css').
+      .frameContainer md-whiteframe {
+      background: #fff;
+      padding-bottom:8px;
+      padding-top:5px;
+      margin-top: 5px;
+      }
+  body(ng-app='firstApplication')
+    .frameContainer(ng-controller='frameController', layout='', layout-align='center', layout-wrap='', style='padding-bottom:0px;padding-left:1px;padding-right:1px;')
+      md-whiteframe.md-whiteframe-1dp(layout='row', flex-xs='100', flex-gt-sm='70', flex-gt-md='60', layout-align='left', style='height:25%;background-color:;')
+        img(src='img/bonadea.jpg', style='width:150px;height:100px;')
+        span(style='font-size:32px;color:;font-weight:bold;padding-left:10px;') Bonadea mhealth
+      md-whiteframe.md-whiteframe-2dp(layout='row', flex-xs='100', flex-gt-sm='70', flex-gt-md='60', layout-align='center center', style='background-color:#DCDCDC;', ng-click="ShowHide('whFrm3')")
+        div(layout='column', flex='20', layout-align='center center')
+          | kcjxv
+        div(layout='column', flex='20', layout-align='center center')
+          | kcjxv1
+        div(layout='column', flex='20', layout-align='center center')
+          | kcjxv1
+        div(layout='column', flex='20', layout-align='center center')
+          | kcjxv1
+      md-whiteframe#whFrm3.md-whiteframe-3dp(ng-hide='IsHidden', layout='row', flex-xs='100', flex-gt-sm='70', flex-gt-md='60', layout-align='', style='padding-left:3px;padding-right:3px')
+        p
+          | Tutorials Point is a place for beginners in all technical areas.
+          | This website covers most of the latest technologies and explains each of 
+          | the technology with simple examples. You also have a 
+          b tryit
+          |  editor, wherein you can edit your code and try
+          |                    out different possibilities of the examples.Tutorials Point is a place for beginners in all technical areas.
+          |                    This website covers most of the latest technologies and explains each of 
+          |                    the technology with simple examples. You also have a 
+          b tryit
+          |  editor, wherein you can edit your code and try
+          |                    out different possibilities of the examplesTutorials Point is a place for beginners in all technical areas.
+          |                    This website covers most of the latest technologies and explains each of 
+          |                    the technology with simple examples. You also have a 
+          b tryit
+          |  editor, wherein you can edit your code and try
+          |                    out different possibilities of the examplesTutorials Point is a place for beginners in all technical areas.
+          |                    This website covers most of the latest technologies and explains each of 
+          |                    the technology with simple examples. You also have a 
+          b tryit
+          |  editor, wherein you can edit your code and try
+          |                    out different possibilities of the examples
+      md-whiteframe.md-whiteframe-4dp(style='background-color:#DCDCDC;', layout='row', flex-xs='100', flex-gt-sm='70', flex-gt-md='60', layout-align='center center', ng-click="ShowHide('whFrm5')")
+        div(layout='column', flex='20', layout-align='center center')
+          | kcjxv
+        div(layout='column', flex='20', layout-align='center center')
+          | kcjxv2
+        div(layout='column', flex='20', layout-align='center center')
+          | kcjxv2
+        div(layout='column', flex='20', layout-align='center center')
+          | kcjxv2
+      md-whiteframe#whFrm5.md-whiteframe-5dp(ng-hide='IsHidden1', layout='row', flex-xs='100', flex-gt-sm='70', flex-gt-md='60', layout-align='', style='padding-left:3px;')
+        p
+          | Tutorials Point is a place for beginners in all technical areas.
+          | This website covers most of the latest technologies and explains each of 
+          | the technology with simple examples. You also have a 
+          b tryit
+          |  editor, wherein you can edit your code and try
+          |                    out different possibilities of the examples.Tutorials Point is a place for beginners in all technical areas.
+          |                    This website covers most of the latest technologies and explains each of 
+          |                    the technology with simple examples. You also have a 
+          b tryit
+          |  editor, wherein you can edit your code and try
+          |                    out different possibilities of the examplesTutorials Point is a place for beginners in all technical areas.
+          |                    This website covers most of the latest technologies and explains each of 
+          |                    the technology with simple examples. You also have a 
+          b tryit
+          |  editor, wherein you can edit your code and try
+          |                    out different possibilities of the examplesTutorials Point is a place for beginners in all technical areas.
+          |                    This website covers most of the latest technologies and explains each of 
+          |                    the technology with simple examples. You also have a 
+          b tryit
+          |  editor, wherein you can edit your code and try
+          |                    out different possibilities of the examples
+      md-whiteframe.md-whiteframe-6dp(style='background-color:#DCDCDC;', layout='row', flex-xs='100', flex-gt-sm='70', flex-gt-md='60', layout-align='center center', ng-click="ShowHide('whFrm7')")
+        div(layout='column', flex='20', layout-align='center center')
+          | kcjxv
+        div(layout='column', flex='20', layout-align='center center')
+          | kcjxv3
+        div(layout='column', flex='20', layout-align='center center')
+          | kcjxv3
+        div(layout='column', flex='20', layout-align='center center')
+          | kcjxv3
+      md-whiteframe#whFrm7.md-whiteframe-7dp(ng-hide='IsHidden2', layout='row', flex-xs='100', flex-gt-sm='70', flex-gt-md='60', layout-align='', style='padding-left:3px;')
+        div(layout='column', flex='65')
+          | flex-65
+          p
+            | Tutorials Point is a place for beginners in all technical areas.
+            | This website covers most of the latest technologies and explains each of 
+            | the technology with simple examples. You also have a 
+            b tryit
+            |  editor, wherein you can edit your code and try
+            |                    out different possibilities of the examples.Tutorials Point is a place for beginners in all technical areas.
+            |                    This website covers most of the latest technologies and explains each of 
+            |                    the technology with simple examples. You also have a 
+            b tryit
+            |  editor,
+        div(layout='column', ng-repeat='item in items', style='background-color:DCDCDC;')
+          div(layout='row', flex='10')
+            | {{item.name}}
+          div(layout='row', flex='10')
+            | {{item.email}}
+          div(layout='row', flex='10')
+            | {{item.number}}
