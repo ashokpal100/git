@@ -1,0 +1,4 @@
+Welcome to Clockwork
+Hi Ashok,
+Your Clockwork account has now been set up. To get you started, here's your first API key:
+a95db2e80d4a3acf55d8f98cfeb93f70023d96c6

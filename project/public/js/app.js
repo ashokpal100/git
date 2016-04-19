@@ -1,0 +1,1 @@
+angular.module('mvcApp', ['ngRoute', 'appRoutes', 'homeCtrl', 'signupCtrl',  'loginCtrl', 'logoutCtrl','profileCtrl', 'appCtrl', 'contactService']);

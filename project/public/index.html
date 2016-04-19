@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <title>MVC APP WITH MYSQL</title>
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/jquery/dist/jquery.min.js"></script>
+    <script src="libs/angular-route/angular-route.min.js"></script>
+    <script src="js/controllers/homeCtrl.js"></script>
+    <script src="js/controllers/signupCtrl.js"></script>
+    <script src="js/controllers/loginCtrl.js"></script>
+    <script src="js/controllers/logoutCtrl.js"></script>
+    <script src="js/controllers/appCtrl.js"></script>
+     <script src="js/controllers/profileCtrl.js"></script>
+    <script src="js/services/contactService.js"></script>
+    <script src="js/appRoutes.js"></script>
+    <script src="js/app.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKtMTztuTUU1jBM5LGdhQCI8AURCPe74o"></script>
+</head>
+<body ng-app="mvcApp" ng-controller="appController">
+    <nav class="navbar navbar-inverse" role="navigation" style="margin-bottom:0px;">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/"><img src="img/logo.jpg" height="30" width="45"></a>
+      </div>
+      <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed = true">
+        <form class="navbar-form navbar-left nav navbar-nav" role="search">
+          <div class="form-group" id="searchId">
+            <input type="text" class="form-control" placeholder="Search">
+            <button type="submit" class="btn btn-default">Search</button>
+          </div>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+         <li id="signup"><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li id="login"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+        <li id="userName"><span class="glyphicon glyphicon-user"></span>{{user.fname}}</li>
+        <li id="logout"><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </nav>
+    <div  class="row">
+        <div class="col-md-12 col-xs-12" ng-view></div>
+    </div>
+</div></div></div>
+</body>
+</html>
