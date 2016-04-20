@@ -1,6 +1,12 @@
 
 angular.module('signupCtrl', []).controller('signupController', function($scope,$http, $window, contactSrv, $location) {
 console.log("i am in signup ctrl")
+     $('#logout').hide();
+     $('#searchId').hide();
+     $('#userName').hide();
+
+     $('#signup').show();
+     $('#login').show();
     $scope.user={};
          $scope.login= function(){
         contactSrv.login().success(function(response){
@@ -16,7 +22,7 @@ console.log("i am in signup ctrl")
              	$location.path("/signup")
              }
              else if(response==2){
-             	alert("seccessfully_____");
+             	alert("Registration successfully_____");
              	$scope.user="";
              	$location.path("/login")
              };
@@ -24,5 +30,6 @@ console.log("i am in signup ctrl")
              
         });
     };
+    
 
 });
